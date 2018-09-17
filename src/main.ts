@@ -11,3 +11,8 @@ if (environment.production) {
 platformBrowserDynamic().bootstrapModule(AppModule)
   .catch(err => console.log(err));
 
+  declare var module: NodeModule;
+  interface NodeModule {
+    id: string;
+  }
+  declare var jQuery: any;

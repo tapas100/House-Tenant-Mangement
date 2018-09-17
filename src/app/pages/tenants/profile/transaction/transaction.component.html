@@ -1,0 +1,19 @@
+<h2 mat-dialog-title>New Transaction</h2>
+
+<mat-dialog-content>
+    <form class="example-form" #tf="ngForm" [formGroup]="transactionData">
+        <mat-form-field class="example-full-width" style="width: 200px;">
+          <input matInput formControlName="Tdate" [matDatepicker]="picker" placeholder="Choose a date">
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+        <mat-form-field class="example-full-width" style="width: 200px;margin-left:20px;">
+            <input matInput formControlName="amount" placeholder="Amount">
+          </mat-form-field>
+      </form>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+    <button class="mat-raised-button" (click)="close()">CANCEL</button>
+    <button class="mat-raised-button" (click)="onSubmitTransactionDetails(tf.value)">ADD</button>
+</mat-dialog-actions>

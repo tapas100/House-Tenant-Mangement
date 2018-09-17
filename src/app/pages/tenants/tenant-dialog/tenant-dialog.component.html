@@ -1,0 +1,54 @@
+<h2 mat-dialog-title>New Tenant</h2>
+
+<mat-dialog-content>
+    <form class="example-form" #af="ngForm" [formGroup]="tenantdata" (ngSubmit)="onSubmitTenantDetails(tenantdata.value)">
+        <mat-form-field class="example-full-width" style="width: 200px;">
+          <input matInput formControlName="firstName" placeholder="FIRST NAME">
+        </mat-form-field>
+        <mat-form-field class="example-full-width" style="width: 200px;margin-left:20px;">
+            <input matInput formControlName="lastName" placeholder="LAST NAME">
+          </mat-form-field>
+        <br>
+        <mat-form-field class="example-full-width" style="width: 434px;">
+            <input matInput  formControlName="address" placeholder="ADDRESS">
+        </mat-form-field>
+        <br>
+        <mat-form-field class="example-full-width" style="width: 200px;">
+            <input matInput formControlName="city" placeholder="CITY">
+        </mat-form-field>
+        <mat-form-field class="example-full-width" style="width: 200px;margin-left:20px;">
+            <input matInput formControlName="state" placeholder="STATE">
+        </mat-form-field>
+        <br>
+        <mat-form-field class="example-full-width" style="width: 200px;">
+            <input matInput formControlName="PAN" placeholder="PAN NO." >
+        </mat-form-field>
+        <mat-form-field class="example-full-width" style="width: 200px;margin-left:20px;">
+            <input matInput formControlName="ADHAR" placeholder="ADHAR NO.">
+        </mat-form-field>
+        <br>
+        <mat-form-field class="example-full-width" style="width: 130px;">
+            <input matInput formControlName="contact" placeholder="PHONE">
+        </mat-form-field>
+        <mat-form-field class="example-full-width" style="width: 120px;margin-left:20px;">
+            <input matInput formControlName="flatNo" placeholder="FLAT NO.">
+        </mat-form-field>
+        <mat-form-field class="example-full-width" style="width: 120px;margin-left:20px;">
+            <input matInput formControlName="buildingNo" placeholder="BUILDING NO.">
+        </mat-form-field>
+        <br>
+        <mat-form-field class="example-full-width" style="width: 200px;">
+            <input matInput formControlName="Rdate" [matDatepicker]="picker" placeholder="STAYING FROM (DATE)">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+        <mat-form-field class="example-full-width" style="width: 200px;margin-left:20px;">
+            <input matInput formControlName="depositAmount" placeholder="DEPOSIT AMOUNT">
+        </mat-form-field>
+      </form>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+    <button class="mat-raised-button" (click)="close()">CANCEL</button>
+    <button class="mat-raised-button" (click)="onSubmitTenantDetails(af.value)">SAVE</button>
+</mat-dialog-actions>

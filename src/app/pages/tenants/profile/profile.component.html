@@ -1,0 +1,96 @@
+<div id="wrapper">
+    <navigation [loginInfo]="loginInfo" *ngIf="loginInfo"></navigation>
+    
+      <div id="page-wrapper" class="gray-bg">
+    
+        <topnavbar></topnavbar>
+<div>
+   <button mat-raised-button (click)="onBack()">Back</button><button mat-raised-button (click)="onRemove()" style="float:right;"><span style="color:#d44b4b;">Remove Tenant</span></button>
+   <mat-card style="height: 280px;padding: 15px;">
+     <div style="width: 26%;
+     float: left;
+     height: 247px;
+     background-color: whitesmoke;
+     margin-right: 7px;
+     border-radius: 15px;
+     text-align: center;
+
+padding: 14px;">
+     <img style="width:90%;border-radius: 50%;" src="../../../../assets/index.jpeg">
+    </div>
+    <div style="width: 50%;
+
+    float: left;
+    
+    padding: 10px;
+    
+    background-color: whitesmoke;
+    
+    border-radius: 15px;
+    padding-left: 35px;
+
+padding-top: 11px;">
+        <form class="example-form">
+            <mat-form-field class="example-full-width" style="width: 200px;">
+              <input matInput placeholder="First Name" value="{{currtenant.firstName}}">
+            </mat-form-field>
+            <mat-form-field class="example-full-width" style="width: 200px;margin-left:20px;">
+                <input matInput placeholder="Last Name" value="{{currtenant.firstName}}">
+              </mat-form-field>
+            <br>
+            <mat-form-field class="example-full-width" style="width: 434px;">
+                <input matInput placeholder="Address" value = "{{currtenant.address}}">
+            </mat-form-field>
+            <br>
+            <mat-form-field class="example-full-width" style="width: 200px;">
+                <input matInput placeholder="city" value="{{currtenant.city}}">
+            </mat-form-field>
+            <mat-form-field class="example-full-width" style="width: 200px;margin-left:20px;">
+                <input matInput placeholder="state" value="{{currtenant.state}}">
+            </mat-form-field>
+            <br>
+            <mat-form-field class="example-full-width" style="width: 200px;">
+                <input matInput placeholder="PAN No." value="{{currtenant.PAN}}">
+            </mat-form-field>
+            <mat-form-field class="example-full-width" style="width: 200px;margin-left:20px;">
+                <input matInput placeholder="ADHAR No." value="{{currtenant.ADHAR}}">
+            </mat-form-field>
+          </form>          
+    </div>
+    <div style="width:21%; float: left;margin-left: 15px;">
+     <div style="width: 100%; height: 120px; background-color: whitesmoke;border-radius: 15px; text-align: center;padding-top: 40px;"><span>Rented</span><br><span>Since {{currtenant.Rdate}}</span></div>
+     <div style="margin-top: 6px; width: 100%; height: 120px; background-color: whitesmoke;border-radius: 15px;text-align: center;padding-top: 40px;"><span>Security Derposit</span><br><span>INR {{currtenant.depositAmount}}</span></div>
+    </div>
+   </mat-card>
+   <mat-card>
+   <span>TRANSACTIONS</span><button mat-raised-button (click)="openDialog()" style="float:right;margin-right: 30px;">ADD TRANSACTION</button>
+  </mat-card>
+   <mat-card>
+      <table style="width:100%;"mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+          <!--- Note that these columns can be defined in any order.
+                The actual rendered columns are set as a property on the row definition" -->
+        
+          
+          <ng-container matColumnDef="transactionId">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> TRANSACTION ID </th>
+            <td mat-cell *matCellDef="let element"> {{element.transactionId}} </td>
+          </ng-container>
+        
+            <ng-container matColumnDef="Tdate">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> DATE </th>
+            <td mat-cell *matCellDef="let element"> {{element.Tdate}} </td>
+          </ng-container>
+    
+          <ng-container matColumnDef="amount">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> AMOUNT </th>
+            <td mat-cell *matCellDef="let element"> {{element.amount}} </td>
+          </ng-container>
+        
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+   </mat-card>
+</div>
+</div>
+</div>

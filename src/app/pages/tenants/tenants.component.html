@@ -1,0 +1,40 @@
+<div id="wrapper">
+<navigation [loginInfo]="loginInfo" *ngIf="loginInfo"></navigation>
+
+  <div id="page-wrapper" class="gray-bg">
+
+    <topnavbar></topnavbar>
+<div>
+  <div>
+<mat-form-field>
+    <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Search">
+</mat-form-field>  
+<button mat-raised-button (click)="openDialog()" style="float:right;margin-right: 30px;">ADD NEW</button>
+</div>
+<div> 
+    <div *ngFor="let user of tenantList" class="twitter-card">
+        <div class="row-top">
+          <div class="user-wrapper">
+             <span class="user-image"><img style="height: inherit;" src="../../../assets/index.jpeg"></span>
+             <div class="profile-user">
+                 <span class="user">{{user.firstName}} {{user.lastName}}</span>
+                 <span class="username">{{user.contact}}</span>
+             </div>
+          </div>
+           <span class="follow">STAYING</span>
+        </div>
+        <p class="profile-bio">FLAT {{user.flatNo}}</p>
+        <div class="row-middle">
+          <span class="profile-location">
+            <i class="fas fa-map-marker-alt"></i>
+             BULDING-{{user.buildingNo}}<span class="follow" style="float: right;background-color: lightgray;
+             padding-left: 14px;
+             padding-right: 14px;cursor: pointer;" (click)="onClick(user)">More Info</span>
+          </span>
+          
+        </div>
+      </div>
+</div>
+</div>
+</div>
+</div>
